@@ -1,0 +1,29 @@
+1.If 7TB is the available disk space per node (9 disks with 1 TB, 2 disk for operating system etc. were excluded. Assuming initial data 
+size is 600 TB. How will you estimate the number of datanodes (n)?
+
+Number Of DataNodes:
+      To Calculate the number of data nodes(n) :-
+            The Formula for Calculating the Number Of DataNodes
+                               n=H/d
+            
+            where n = Number of Data Nodes,
+                  H = Initial Data Size,
+                  d = Available disk space per node
+            Here, H = 600TB
+              and d = 7TB
+              
+              Therefore, n = H/d = 600/7
+                         n = 86
+           Hence the number of data nodes required are 86.
+
+2. Imagine that you are uploading a file of 500MB into HDFS.100MB of data is successfully uploaded into HDFS and another client wants to 
+read the uploaded data while the upload is still in progress. What will happen in such a scenario, will the 100 MB of data that is uploaded 
+will it be displayed?
+
+         No,the 100 MB of data that is uploaded will not be displayed. Another client would see no content until the whole file is written and
+  closed. 
+         This is because the file will not be accessible until the whole file is written and closed (option D) is because, in order to access
+  a file, the request is first sent to the NameNode, to obtain metadata relating to the different blocks that compose the file. This 
+  metadata will be written by the NameNode only after it receives confirmation that all blocks of the file were written successfully.
+         Therefore, even though the blocks are available, the user can't see the file until the metadata is updated, which is done after 
+  all blocks are written.
